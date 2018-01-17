@@ -133,6 +133,8 @@ export default class ImageSlider extends Component {
     render() {
         const width = this.state.width;
         const height = this.props.height || this.state.height;
+        const imageResizeMode = this.props.imageResizeMode || 'contain';
+        const imageBackgroundColor = this.props.imageBackgroundColor || '#fff';
         const position = this._getPosition();
         return (<View>
             <ScrollView
@@ -147,7 +149,8 @@ export default class ImageSlider extends Component {
                     const imageComponent = <Image
                         key={index}
                         source={imageObject}
-                        style={{height, width}}
+                        style={{height, width,
+                                resizeMode: imageResizeMode, backgroundColor: imageBackgroundColor}}
                     />;
                     if (this.props.onPress) {
                         return (
